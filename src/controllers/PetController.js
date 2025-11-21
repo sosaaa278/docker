@@ -1,5 +1,5 @@
 import { Pet } from "../models/Pet.js";
-import { Owner } from "../models/owner.js";
+import { Owner } from "../models/Owner.js";
 
 export const createPet = async (req, res) => {
     try {

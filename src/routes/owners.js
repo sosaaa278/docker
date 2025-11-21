@@ -16,9 +16,9 @@ router.get("/", async (req, res) => {
 // ➤ POST – crear un nuevo owner
 router.post("/", async (req, res) => {
     try {
-        const { name, phone } = req.body;
+        const { name, phone, email } = req.body;
 
-        const newOwner = await Owner.create({ name, phone });
+        const newOwner = await Owner.create({ name, phone, email });
 
         res.json({
             message: "Owner creado correctamente",
@@ -34,7 +34,7 @@ router.post("/", async (req, res) => {
 router.put("/:id", async (req, res) => {
     try {
         const { id } = req.params;       // ID tomado de la URL
-        const { name, phone } = req.body; // Datos nuevos
+        const { name, phone, email } = req.body; // Datos nuevos
 
         const owner = await Owner.findByPk(id);
 
@@ -42,7 +42,7 @@ router.put("/:id", async (req, res) => {
             return res.status(404).json({ message: "Owner no encontrado" });
         }
 
-        await owner.update({ name, phone });
+        await owner.update({ name, phone, email });
 
         res.json({
             message: "Owner actualizado correctamente",

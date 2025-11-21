@@ -9,6 +9,10 @@ const Owner = sequelize.define("Owner", {
     phone: {
         type: DataTypes.STRING,
         allowNull: false
+    },
+    email: {
+        type: DataTypes.STRING,
+        allowNull: false
     }
 }, {
     tableName: "owners",
